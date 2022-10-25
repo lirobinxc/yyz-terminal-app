@@ -98,7 +98,7 @@ export default function Freqs() {
   return (
     <main>
       <div className="remainingCount">
-        <div>CJS Frequencies </div>
+        <div>CJS Frequencies v1.1</div>
         <div>
           Remaining: {randomList ? randomList.length - index - 1 : '0'}/
           {frequencyList.length}

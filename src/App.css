@@ -9,6 +9,7 @@ div {
   justify-content: center;
   align-items: center;
   width: 100vw;
+  user-select: none;
 }
 
 .remainingCount {
@@ -22,6 +23,7 @@ div {
   flex-direction: column;
   user-select: none;
   cursor: pointer;
+  user-select: none;
 }
 
 .cjs {
