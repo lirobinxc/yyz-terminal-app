@@ -1,10 +1,10 @@
 import { useEffect, useState } from 'react';
-import { frequencyData } from './frequencyData.js';
+import { airportsData } from './airportsData';
 import clsx from 'clsx';
 
 import '../../App.scss';
 
-export default function Freqs() {
+export default function Airports() {
   const [randomList, setRandomList] = useState();
   const [showCjs, setShowCjs] = useState(true);
   const [index, setIndex] = useState(0);
@@ -12,19 +12,20 @@ export default function Freqs() {
   const [endTime, setEndTime] = useState(Date.now());
   const [isClickEnabled, setIsClickEnabled] = useState(true);
 
-  function randomize(list) {
+  function randomizeAndSlice(list, num = 20) {
     const newList = list
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
-      .map(({ value }) => value);
+      .map(({ value }) => value)
+      .slice(0, num - 1);
 
-    newList.push({ cjs: 'Done!' });
+    newList.push({ designator: 'Done!' });
 
     return newList;
   }
 
   useEffect(() => {
-    setRandomList(randomize(frequencyData));
+    setRandomList(randomizeAndSlice(airportsData));
   }, []);
 
   function handleShowAnswer() {
@@ -38,7 +39,7 @@ export default function Freqs() {
 
   function reset() {
     setIndex(0);
-    setRandomList(randomize(frequencyData));
+    setRandomList(randomizeAndSlice(airportsData));
     setStartTime(Date.now());
     setShowCjs(true);
   }
@@ -72,18 +73,18 @@ export default function Freqs() {
     if (!randomList) return;
     const nextItem = randomList[index];
 
-    const containerClass = clsx('cardContainer', 'Freqs', {
+    const containerClass = clsx('cardContainer', 'Airports', {
       disableClick: !isClickEnabled,
     });
 
-    if (showCjs && nextItem.cjs !== 'Done!') {
+    if (showCjs && nextItem.designator !== 'Done!') {
       return (
         <div className={containerClass} onClick={handleShowAnswer}>
-          <div className="data1">{nextItem.cjs}</div>
+          <div className="data1">{nextItem.designator}</div>
           <div className="data2">___</div>
         </div>
       );
-    } else if (nextItem.cjs === 'Done!') {
+    } else if (nextItem.designator === 'Done!') {
       return (
         <div className={containerClass} onClick={handleNextQuestion}>
           <div className="data1">Done!</div>
@@ -93,8 +94,8 @@ export default function Freqs() {
     } else {
       return (
         <div className={containerClass} onClick={handleNextQuestion}>
-          <div className="data1">{nextItem.cjs}</div>
-          <div className="data2">{nextItem.freq}</div>
+          <div className="data1">{nextItem.designator}</div>
+          <div className="data2">{nextItem.location}</div>
         </div>
       );
     }
@@ -103,10 +104,10 @@ export default function Freqs() {
   return (
     <section className="TopicPage">
       <div className="topicTitleRow">
-        <div>CJS Frequencies</div>
+        <div>Airports</div>
         <div>
-          Remaining: {randomList ? randomList.length - index - 1 : '0'}/
-          {frequencyData.length}
+          Remaining: {randomList ? randomList.length - index : '0'}/
+          {randomList && randomList.length}
         </div>
       </div>
       {DisplayList()}

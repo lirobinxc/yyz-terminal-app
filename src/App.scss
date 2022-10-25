@@ -1,0 +1,119 @@
+main {
+  text-align: center;
+  vertical-align: center;
+  -webkit-tap-highlight-color: transparent;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  width: 100vw;
+}
+
+div {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+  -webkit-tap-highlight-color: transparent;
+}
+
+.topicTitleRow {
+  display: flex;
+
+  div {
+    margin: 0.5rem;
+  }
+}
+
+.TopicPage {
+  display: flex;
+  flex-direction: column;
+  height: 90vh;
+
+  .cardContainer {
+    border: 1px solid grey;
+    // height: 60vh;
+    display: flex;
+    flex-direction: column;
+    flex-grow: 3;
+    user-select: none;
+    padding: 1rem;
+    cursor: pointer;
+    -webkit-tap-highlight-color: transparent;
+  }
+
+  .Freqs {
+    .data1 {
+      color: black;
+      font-size: 3rem;
+    }
+
+    .data2 {
+      color: blue;
+      font-size: 4rem;
+    }
+  }
+
+  .Airports {
+    .data1 {
+      color: black;
+      font-size: 3rem;
+    }
+
+    .data2 {
+      color: blue;
+      font-size: 2rem;
+    }
+
+    .data3 {
+    }
+  }
+}
+
+.disableClick {
+  pointer-events: none;
+}
+
+.Homepage {
+  display: flex;
+  flex-direction: column;
+
+  h1 {
+    margin: 0;
+    padding: 1rem;
+  }
+
+  h2 {
+    margin: 0 0 2rem 0;
+  }
+
+  .titleSection {
+    display: flex;
+    flex-direction: column;
+  }
+
+  .topicSection {
+    .topicRow {
+      font-size: 2rem;
+      padding: 1rem;
+      border: 1px solid grey;
+    }
+  }
+}
+
+.resetButton {
+  padding: 0.5rem;
+  margin: 1rem;
+  background-color: lightblue;
+}
+
+.footerSection {
+  display: flex;
+  justify-content: flex-start;
+  height: 10vh;
+  .homeButton {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin: 0.5rem;
+    background-color: aliceblue;
+  }
+}
