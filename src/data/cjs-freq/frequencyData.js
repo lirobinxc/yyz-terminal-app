@@ -24,11 +24,11 @@ export const frequencyData = [
     freq: '127.57',
   },
   {
-    cjs: 'NT',
+    cjs: 'YZ (North)',
     freq: '118.7',
   },
   {
-    cjs: 'ST',
+    cjs: 'YZ (South)',
     freq: '118.35',
   },
   {
