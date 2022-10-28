@@ -79,4 +79,16 @@ export const frequencyData = [
     cjs: 'PI',
     freq: '124.67',
   },
+  {
+    cjs: 'ES',
+    freq: '133.4',
+  },
+  {
+    cjs: 'WS',
+    freq: '119.7',
+  },
+  {
+    cjs: 'XU',
+    freq: '128.27',
+  },
 ];
