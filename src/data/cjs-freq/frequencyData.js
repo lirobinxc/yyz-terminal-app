@@ -75,4 +75,8 @@ export const frequencyData = [
     cjs: 'MF UNICOM',
     freq: '126.2',
   },
+  {
+    cjs: 'PI',
+    freq: '124.67',
+  },
 ];
