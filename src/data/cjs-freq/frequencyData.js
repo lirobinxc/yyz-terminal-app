@@ -91,4 +91,12 @@ export const frequencyData = [
     cjs: 'XU',
     freq: '128.27',
   },
+  {
+    cjs: 'UHF Freq (West High)',
+    freq: '344.3',
+  },
+  {
+    cjs: 'UHF Freq (North)',
+    freq: '344.5',
+  },
 ];
