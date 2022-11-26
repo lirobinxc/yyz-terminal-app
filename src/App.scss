@@ -63,8 +63,30 @@ div {
       color: blue;
       font-size: 2rem;
     }
+  }
+
+  .Sids {
+    .data1 {
+      color: black;
+      font-size: 3rem;
+    }
+
+    .data2 {
+      color: blue;
+      font-size: 2em;
+    }
 
     .data3 {
+      color: green;
+      font-size: 1.5em;
+      height: 1.5rem;
+      margin-bottom: 1rem;
+    }
+
+    .data4 {
+      color: blue;
+      font-size: 1em;
+      height: 1rem;
     }
   }
 }
