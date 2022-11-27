@@ -45,7 +45,7 @@ export default function Sids({ runwayConfig }) {
 
   function reset() {
     setIndex(0);
-    setRandomList(randomize(sidsData));
+    setRandomList(randomize(sidsData[runwayConfig]));
     setStartTime(Date.now());
     setShowAnswer(true);
   }
