@@ -74,12 +74,14 @@ div {
     .data2 {
       color: blue;
       font-size: 2em;
+
     }
 
     .data3 {
       color: green;
       font-size: 1.5em;
       height: 1.5rem;
+      padding: 0.25rem;
       margin-bottom: 1rem;
     }
 
@@ -87,6 +89,40 @@ div {
       color: blue;
       font-size: 1em;
       height: 1rem;
+    }
+
+    .data5 {
+      padding: 0.25rem;
+      font-weight: bold;
+      font-size: 1.5em;
+      height: 1.5rem;
+    }
+
+    .data6 {
+      color: darkslategrey;
+      font-size: 1.5em;
+      height: 1.5rem;
+      text-decoration: underline;
+      margin-bottom: 0.5rem;
+    }
+
+    .data7 {
+      color: green;
+      font-size: 1.5em;
+      height: 1.5rem;
+      font-weight: bold;
+    }
+
+    .colorPurple {
+      color: white;
+
+      background-color: purple;
+    }
+
+    .colorOrange {
+      color: white;
+    
+      background-color: darkorange;
     }
   }
 }

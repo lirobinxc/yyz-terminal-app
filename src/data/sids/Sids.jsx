@@ -5,9 +5,9 @@ import clsx from 'clsx';
 import '../../App.scss';
 
 export const IRunway = {
-  '05,06LR': '05,06LR',
+  '05,06LR': '05, 06LR',
   '15LR': '15LR',
-  '23,24LR': '23,24LR',
+  '23,24LR': '23, 24LR',
   '33LR': '33LR',
 };
 
@@ -90,6 +90,13 @@ export default function Sids({ runwayConfig }) {
           <div className="data3"></div>
           <div className="data2">___</div>
           <div className="data4"></div>
+          <h3>Prop/Jet Turn?</h3>
+          <div className="data5"></div>
+          <h3>Handoff Procedures</h3>
+          <div className="data6"></div>
+          <div>Climbing to:</div>
+          <div className="data7"></div>
+          <div className="data7"></div>
         </div>
       );
     } else if (nextItem.isDone) {
@@ -103,7 +110,7 @@ export default function Sids({ runwayConfig }) {
       return (
         <div className={containerClass} onClick={handleNextQuestion}>
           <div className="data1">{nextItem.Name}</div>
-          <div className="data3">{nextItem['Aircraft type']}</div>
+          <div className={clsx(['data3', {'colorPurple': nextItem['Aircraft type'] === 'Jet', 'colorOrange': nextItem['Aircraft type'] !== 'Jet'}])}>{nextItem['Aircraft type']}</div>
           <div className="data2">
             {nextItem['First WP']} - {nextItem['Route WP']} -{' '}
             {nextItem['Final WP']}
@@ -111,6 +118,13 @@ export default function Sids({ runwayConfig }) {
           <div className="data4">
             {nextItem['Further WP'] && `- ${nextItem['Further WP']}`}
           </div>
+          <h3>Prop/Jet Turn?</h3>
+          <div className={clsx(['data5', {'colorPurple': nextItem['Aircraft type'] === 'Jet', 'colorOrange': nextItem['Aircraft type'] !== 'Jet'}])}>{nextItem['Prop or Jet Turns']}</div>
+          <h3>Handoff Procedures</h3>
+          <div className="data6">{`${nextItem['Handoff Sector']} - ${nextItem['Handoff Freq']}`}</div>
+          <div>Climbing to:</div>
+          <div className="data7">{nextItem['Handoff Alt']}</div>
+          <div className="data7">{nextItem['Alt Handoff Alt']}</div>
         </div>
       );
     }
