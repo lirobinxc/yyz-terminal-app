@@ -294,7 +294,7 @@ export const sidsData = {
         "Final WP": "EBKIN",
         "Further WP": "KISEP",
         "Prop or Jet Turns": "360",
-        "Handoff Alt": "6000",
+        "Handoff Alt": "8000",
         "Alt Handoff Alt": "",
         "Handoff Sector": "VV",
         "Handoff Freq": "124.02"
@@ -307,7 +307,7 @@ export const sidsData = {
         "Final WP": "IKLEN",
         "Further WP": "TONNY",
         "Prop or Jet Turns": "360",
-        "Handoff Alt": "6000",
+        "Handoff Alt": "8000",
         "Alt Handoff Alt": "",
         "Handoff Sector": "VV",
         "Handoff Freq": "124.02"
@@ -634,7 +634,7 @@ export const sidsData = {
         "Final WP": "EBKIN",
         "Further WP": "KISEP",
         "Prop or Jet Turns": "060",
-        "Handoff Alt": "8000",
+        "Handoff Alt": "6000",
         "Alt Handoff Alt": "",
         "Handoff Sector": "VV",
         "Handoff Freq": "124.02"
@@ -647,7 +647,7 @@ export const sidsData = {
         "Final WP": "IKLEN",
         "Further WP": "TONNY",
         "Prop or Jet Turns": "060",
-        "Handoff Alt": "8000",
+        "Handoff Alt": "6000",
         "Alt Handoff Alt": "",
         "Handoff Sector": "VV",
         "Handoff Freq": "124.02"
