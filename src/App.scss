@@ -73,8 +73,27 @@ div {
 
     .data2 {
       color: blue;
-      font-size: 2em;
 
+      display: flex;
+      flex-direction: column;
+
+      .routeWP {
+        font-size: 1.7em;
+        height: 1.7rem;
+      }
+
+      .finalWP {
+        font-size: 2em;
+        height: 2rem;
+        font-weight: bold;
+        text-decoration: underline;
+      }
+
+      .furtherWP {
+        font-size: 1em;
+        height: 1rem;
+        margin-top: 0.3rem;
+      }
     }
 
     .data3 {
@@ -106,23 +125,60 @@ div {
       margin-bottom: 0.5rem;
     }
 
-    .data7 {
-      color: green;
+    .data7a {
       font-size: 1.5em;
       height: 1.5rem;
-      font-weight: bold;
+      color: green;
+      display: flex;
+      flex-direction: row;
+
+      .altitude {
+        font-weight: bold;
+      }
     }
 
+    .data7b {
+      font-size: 1.3em;
+      height: 1.3rem;
+      color: teal;
+      margin-top: 1.2rem;
+      display: flex;
+      flex-direction: column;
+      .altitude {
+        font-weight: bold;
+      }
+      .reason {
+        font-size: 1rem;
+      }
+    }
+
+    .data8 {
+      font-size: 1.5em;
+      height: 1.5rem;
+      color: darkslategrey;
+      margin-top: 2rem;
+      display: flex;
+      flex-direction: row;
+      .freq {
+        font-weight: bold;
+        text-decoration: underline;
+      }
+      .sector {
+      }
+    }
     .colorPurple {
       color: white;
-
       background-color: purple;
     }
 
     .colorOrange {
       color: white;
-    
       background-color: darkorange;
+    }
+
+    .colorDefault {
+      color: auto;
+      background-color: auto;
     }
   }
 }

@@ -75,6 +75,25 @@ export default function Sids({ runwayConfig }) {
     return `${(timeElapsed / 1000).toFixed(1)} seconds`;
   }
 
+  function processAltAlt(string = '') {
+    if (!string)
+      return (
+        <div className="data7b">
+          <div className="leadText"></div>
+          <div className="altitude"></div>
+        </div>
+      );
+
+    const altAndReasonArr = string.split(', ');
+
+    return (
+      <div className="data7b">
+        <div className="altitude">{`Climb ${altAndReasonArr[0]}`}</div>
+        <div className="reason">{altAndReasonArr[1]}</div>
+      </div>
+    );
+  }
+
   function DisplayList() {
     if (!randomList) return;
     const nextItem = randomList[index];
@@ -88,15 +107,26 @@ export default function Sids({ runwayConfig }) {
         <div className={containerClass} onClick={handleShowAnswer}>
           <div className="data1">{nextItem.Name}</div>
           <div className="data3"></div>
-          <div className="data2">___</div>
-          <div className="data4"></div>
+          <div className="data2">
+            <div className="routeWP">______</div>
+            <div className="finalWP"></div>
+            <div className="furtherWP"></div>
+          </div>
           <h3>Prop/Jet Turn?</h3>
           <div className="data5"></div>
           <h3>Handoff Procedures</h3>
-          <div className="data6"></div>
-          <div>Climbing to:</div>
-          <div className="data7"></div>
-          <div className="data7"></div>
+          <div className="data7a">
+            "<div className="leadText">Climb&nbsp;</div>
+            <div className="altitude">______</div>"
+          </div>
+          <div className="data7b">
+            <div className="leadText"></div>
+            <div className="altitude"></div>
+          </div>
+          <div className="data8">
+            "<div>Contact CENTER&nbsp;</div>
+            <div className="freq">______</div>
+          </div>
         </div>
       );
     } else if (nextItem.isDone) {
@@ -110,21 +140,49 @@ export default function Sids({ runwayConfig }) {
       return (
         <div className={containerClass} onClick={handleNextQuestion}>
           <div className="data1">{nextItem.Name}</div>
-          <div className={clsx(['data3', {'colorPurple': nextItem['Aircraft type'] === 'Jet', 'colorOrange': nextItem['Aircraft type'] !== 'Jet'}])}>{nextItem['Aircraft type']}</div>
-          <div className="data2">
-            {nextItem['First WP']} - {nextItem['Route WP']} -{' '}
-            {nextItem['Final WP']}
+          <div
+            className={clsx([
+              'data3',
+              {
+                colorPurple: nextItem['Aircraft type'] === 'Jet',
+                colorOrange: nextItem['Aircraft type'] === 'Non-jet',
+              },
+            ])}
+          >
+            {nextItem['Aircraft type']}
           </div>
-          <div className="data4">
-            {nextItem['Further WP'] && `- ${nextItem['Further WP']}`}
+          <div className="data2">
+            <div className="routeWP">
+              {nextItem['First WP']} - {nextItem['Route WP']} -
+            </div>
+            <div className="finalWP">{nextItem['Final WP']}</div>
+            <div className="furtherWP">- {nextItem['Further WP']}</div>
           </div>
           <h3>Prop/Jet Turn?</h3>
-          <div className={clsx(['data5', {'colorPurple': nextItem['Aircraft type'] === 'Jet', 'colorOrange': nextItem['Aircraft type'] !== 'Jet'}])}>{nextItem['Prop or Jet Turns']}</div>
+          <div
+            className={clsx([
+              'data5',
+              {
+                colorPurple: nextItem['Aircraft type'] === 'Jet',
+                colorOrange: nextItem['Aircraft type'] === 'Non-jet',
+              },
+            ])}
+          >
+            {nextItem['Prop or Jet Turns']}
+          </div>
           <h3>Handoff Procedures</h3>
-          <div className="data6">{`${nextItem['Handoff Sector']} - ${nextItem['Handoff Freq']}`}</div>
-          <div>Climbing to:</div>
-          <div className="data7">{nextItem['Handoff Alt']}</div>
-          <div className="data7">{nextItem['Alt Handoff Alt']}</div>
+          <div className="data7a">
+            "<div>Climb&nbsp;</div>
+            <div className="altitude">{nextItem['Handoff Alt']}</div>"
+          </div>
+          {processAltAlt(nextItem['Alt Handoff Alt'])}
+          <div className="data8">
+            "<div>Contact CENTER&nbsp;</div>
+            <div className="freq">
+              {`${nextItem['Handoff Freq']} (${nextItem['Handoff Sector']})`}
+            </div>
+            "
+          </div>
         </div>
       );
     }
