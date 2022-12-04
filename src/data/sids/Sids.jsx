@@ -133,7 +133,7 @@ export default function Sids({ runwayConfig }) {
       return (
         <div className={containerClass} onClick={handleNextQuestion}>
           <div className="data1">Done!</div>
-          <div className="data2">{displayTimer()}</div>
+          <div className="timerText">{displayTimer()}</div>
         </div>
       );
     } else {

@@ -66,6 +66,12 @@ div {
   }
 
   .Sids {
+    .timerText {
+      color: blue;
+      font-size: 2em;
+      height: 2rem;
+    }
+
     .data1 {
       color: black;
       font-size: 3rem;
@@ -102,12 +108,6 @@ div {
       height: 1.5rem;
       padding: 0.25rem;
       margin-bottom: 1rem;
-    }
-
-    .data4 {
-      color: blue;
-      font-size: 1em;
-      height: 1rem;
     }
 
     .data5 {
