@@ -1,13 +1,13 @@
 {
   "files": {
-    "main.css": "/yyz-terminal-app/static/css/main.7db5d1c4.css",
-    "main.js": "/yyz-terminal-app/static/js/main.6d3790a7.js",
+    "main.css": "/yyz-terminal-app/static/css/main.d7636536.css",
+    "main.js": "/yyz-terminal-app/static/js/main.ea177a4a.js",
     "index.html": "/yyz-terminal-app/index.html",
-    "main.7db5d1c4.css.map": "/yyz-terminal-app/static/css/main.7db5d1c4.css.map",
-    "main.6d3790a7.js.map": "/yyz-terminal-app/static/js/main.6d3790a7.js.map"
+    "main.d7636536.css.map": "/yyz-terminal-app/static/css/main.d7636536.css.map",
+    "main.ea177a4a.js.map": "/yyz-terminal-app/static/js/main.ea177a4a.js.map"
   },
   "entrypoints": [
-    "static/css/main.7db5d1c4.css",
-    "static/js/main.6d3790a7.js"
+    "static/css/main.d7636536.css",
+    "static/js/main.ea177a4a.js"
   ]
 }
