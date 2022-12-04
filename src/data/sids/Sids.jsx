@@ -125,7 +125,7 @@ export default function Sids({ runwayConfig }) {
           </div>
           <div className="data8">
             "<div>Contact CENTER&nbsp;</div>
-            <div className="freq">_____________</div>"
+            <div className="freq">__________</div>"
           </div>
         </div>
       );
