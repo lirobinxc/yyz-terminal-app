@@ -5,11 +5,13 @@ import Airports from './data/airports/Airports';
 import Sids, { IRunway } from './data/sids/Sids';
 
 import './App.scss';
+import Satellite from './data/satellite/Satellite';
 
 const Topic = {
   Home: 'Home',
   Airports: 'Airports',
   Freqs: 'Freqs',
+  Satellite: 'Satellite',
   SIDs: IRunway,
 };
 
@@ -37,6 +39,9 @@ function App() {
           </li>
           <li className="topicRow" onClick={() => setTopic(Topic.Airports)}>
             Airports
+          </li>
+          <li className="topicRow" onClick={() => setTopic(Topic.Satellite)}>
+            Satellite Procedures
           </li>
           <li
             className="topicRow"
@@ -66,6 +71,7 @@ function App() {
       {topic === Topic.Home && Homepage}
       {topic === Topic.Freqs && <Freqs />}
       {topic === Topic.Airports && <Airports />}
+      {topic === Topic.Satellite && <Satellite />}
       {topic === Topic.SIDs['05,06LR'] && (
         <Sids runwayConfig={Topic.SIDs['05,06LR']} />
       )}

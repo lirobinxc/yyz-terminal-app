@@ -65,6 +65,34 @@ div {
     }
   }
 
+  .Satellite {
+    .data1 {
+      color: black;
+      font-size: 2rem;
+    }
+
+    .data2 {
+      color: blue;
+
+      display: flex;
+      flex-direction: column;
+      height: 3rem;
+    }
+
+    .data3 {
+      color: green;
+
+      height: 1.5rem;
+      display: flex;
+      flex-direction: column;
+    }
+
+    .data4 {
+      height: 1.5rem;
+      color: darkcyan;
+    }
+  }
+
   .Sids {
     .timerText {
       color: blue;
