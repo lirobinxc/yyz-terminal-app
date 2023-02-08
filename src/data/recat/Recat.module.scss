@@ -1,0 +1,28 @@
+.Recat {
+  background-color: black;
+}
+
+.planeWrapper {
+  display: flex;
+  flex-direction: column;
+
+  .plane {
+    color: white;
+    font-size: 2.5rem;
+  }
+}
+
+.answer {
+  color: lightgreen;
+  font-size: 2.5rem;
+  height: 2rem;
+}
+
+.timeScore {
+  color: lightblue;
+  font-size: 3rem;
+}
+
+.ppsImage {
+  width: 50%;
+}

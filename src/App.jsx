@@ -6,6 +6,7 @@ import Sids, { IRunway } from './data/sids/Sids';
 
 import './App.scss';
 import Satellite from './data/satellite/Satellite';
+import RecatHard from './data/recat/RecatHard';
 
 const Topic = {
   Home: 'Home',
@@ -13,6 +14,7 @@ const Topic = {
   Freqs: 'Freqs',
   Satellite: 'Satellite',
   SIDs: IRunway,
+  Recat: 'RECAT',
 };
 
 function App() {
@@ -34,6 +36,9 @@ function App() {
       </section>
       <section className="topicSection">
         <ol>
+          <li className="topicRow" onClick={() => setTopic(Topic.Recat)}>
+            RECAT Spacing
+          </li>
           <li className="topicRow" onClick={() => setTopic(Topic.Freqs)}>
             CJS + Frequencies
           </li>
@@ -69,6 +74,7 @@ function App() {
   return (
     <main>
       {topic === Topic.Home && Homepage}
+      {topic === Topic.Recat && <RecatHard />}
       {topic === Topic.Freqs && <Freqs />}
       {topic === Topic.Airports && <Airports />}
       {topic === Topic.Satellite && <Satellite />}
