@@ -6,6 +6,7 @@ import Sids, { IRunway } from './data/sids/Sids';
 
 import './App.scss';
 import Satellite from './data/satellite/Satellite';
+import RecatEasy from './data/recat/RecatEasy';
 import RecatHard from './data/recat/RecatHard';
 
 const Topic = {
@@ -14,7 +15,8 @@ const Topic = {
   Freqs: 'Freqs',
   Satellite: 'Satellite',
   SIDs: IRunway,
-  Recat: 'RECAT',
+  RecatEasy: 'RECAT Basic',
+  RecatHard: 'RECAT Hard',
 };
 
 function App() {
@@ -30,14 +32,17 @@ function App() {
         <h1>
           ✈️
           <br />
-          YYZ Terminal App 2.0
+          YYZ Terminal App 2.3
         </h1>
         <h2>Select a topic. </h2>
       </section>
       <section className="topicSection">
         <ol>
-          <li className="topicRow" onClick={() => setTopic(Topic.Recat)}>
-            RECAT Spacing
+          <li className="topicRow" onClick={() => setTopic(Topic.RecatEasy)}>
+            RECAT Basic
+          </li>
+          <li className="topicRow" onClick={() => setTopic(Topic.RecatHard)}>
+            RECAT Hard
           </li>
           <li className="topicRow" onClick={() => setTopic(Topic.Freqs)}>
             CJS + Frequencies
@@ -74,7 +79,8 @@ function App() {
   return (
     <main>
       {topic === Topic.Home && Homepage}
-      {topic === Topic.Recat && <RecatHard />}
+      {topic === Topic.RecatEasy && <RecatEasy />}
+      {topic === Topic.RecatHard && <RecatHard />}
       {topic === Topic.Freqs && <Freqs />}
       {topic === Topic.Airports && <Airports />}
       {topic === Topic.Satellite && <Satellite />}

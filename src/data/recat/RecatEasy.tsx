@@ -1,6 +1,5 @@
 import { useEffect, useState } from 'react';
 import clsx from 'clsx';
-import _ from 'lodash';
 
 import '../../App.scss';
 import styles from './Recat.module.scss';
@@ -13,20 +12,14 @@ import {
   RecatGroup,
   RecatPairData,
 } from './recatData';
-import { AircraftRecatData } from './aircraftRecatData';
 
-export default function RecatHard() {
-  const [randomList, setRandomList] = useState(
-    randomizeAndSlice(recatDataList)
-  );
-  const [showAnswer, setShowAnswer] = useState(true);
+export default function RecatEasy() {
+  const [randomList, setRandomList] = useState(recatDataList);
+  const [showCjs, setShowCjs] = useState(true);
   const [index, setIndex] = useState(0);
   const [startTime, setStartTime] = useState(Date.now());
   const [endTime, setEndTime] = useState(Date.now());
   const [isClickEnabled, setIsClickEnabled] = useState(true);
-  const [planes, setPlanes] = useState<
-    [string | undefined, string | undefined]
-  >(['', '']);
 
   function randomizeAndSlice(list: RecatPairData[], num = 20) {
     const newList = list
@@ -45,11 +38,8 @@ export default function RecatHard() {
   }
 
   useEffect(() => {
-    setPlanes([
-      _.sample(AircraftRecatData[randomList[index].plane1]),
-      _.sample(AircraftRecatData[randomList[index].plane2]),
-    ]);
-  }, [index]);
+    setRandomList(randomizeAndSlice(recatDataList));
+  }, []);
 
   function handleShowAnswer() {
     const isFirstItem = index === 0;
@@ -57,14 +47,14 @@ export default function RecatHard() {
       setStartTime(Date.now());
     }
 
-    setShowAnswer(false);
+    setShowCjs(false);
   }
 
   function reset() {
     setIndex(0);
     // setRandomList(randomizeAndSlice(airportsData));
     setStartTime(Date.now());
-    setShowAnswer(true);
+    setShowCjs(true);
   }
 
   function handleNextQuestion() {
@@ -81,7 +71,7 @@ export default function RecatHard() {
     } else {
       setIndex(index + 1);
     }
-    setShowAnswer(true);
+    setShowCjs(true);
   }
 
   function displayTimer() {
@@ -96,31 +86,12 @@ export default function RecatHard() {
     return (
       <div>
         <div className={styles.planeWrapper}>
-          <div className={styles.planeName}>{planes[0]}</div>
-          <img src={ppsImg} className={styles.ppsImage} />
-          <div className={styles.plane}></div>
-        </div>
-        <div className={styles.planeWrapper}>
-          <div className={styles.planeName}>{planes[1]}</div>
-          <img src={ppsImg} className={styles.ppsImage} />
-          <div className={styles.plane}></div>
-        </div>
-      </div>
-    );
-  }
-
-  function RecatImageAnswer(plane1: RecatGroup, plane2: RecatGroup) {
-    return (
-      <div>
-        <div className={styles.planeWrapper}>
-          <div className={styles.planeName}>{planes[0]}</div>
-          <img src={ppsImg} className={styles.ppsImage} />
           <div className={styles.plane}>{plane1}</div>
+          <img src={ppsImg} className={styles.ppsImage} />
         </div>
         <div className={styles.planeWrapper}>
-          <div className={styles.planeName}>{planes[1]}</div>
-          <img src={ppsImg} className={styles.ppsImage} />
           <div className={styles.plane}>{plane2}</div>
+          <img src={ppsImg} className={styles.ppsImage} />
         </div>
       </div>
     );
@@ -134,7 +105,7 @@ export default function RecatHard() {
       disableClick: !isClickEnabled,
     });
 
-    if (showAnswer && nextItem.spacing !== 999) {
+    if (showCjs && nextItem.spacing !== 999) {
       return (
         <div className={containerClass} onClick={handleShowAnswer}>
           {RecatImage(nextItem.plane1, nextItem.plane2)}
@@ -151,7 +122,7 @@ export default function RecatHard() {
     } else {
       return (
         <div className={containerClass} onClick={handleNextQuestion}>
-          {RecatImageAnswer(nextItem.plane1, nextItem.plane2)}
+          {RecatImage(nextItem.plane1, nextItem.plane2)}
           <div className={styles.answer}>
             {nextItem.spacing ? nextItem.spacing : 'min'}
           </div>
@@ -163,7 +134,7 @@ export default function RecatHard() {
   return (
     <section className="TopicPage">
       <div className="topicTitleRow">
-        <div>ICAO-7 RECAT Hard</div>
+        <div>ICAO-7 RECAT Basic</div>
         <div>
           Remaining: {randomList ? randomList.length - index : '0'}/
           {randomList && randomList.length}

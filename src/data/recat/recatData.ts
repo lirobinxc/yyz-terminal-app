@@ -37,7 +37,7 @@ export const recatData: {
     D: 3,
     E: 3.5,
     F: 3.5,
-    G: 4,
+    G: 6,
   },
   D: {
     A: null,
