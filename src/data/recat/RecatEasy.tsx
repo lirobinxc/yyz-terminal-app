@@ -52,7 +52,7 @@ export default function RecatEasy() {
 
   function reset() {
     setIndex(0);
-    // setRandomList(randomizeAndSlice(airportsData));
+    setRandomList(randomizeAndSlice(recatDataList));
     setStartTime(Date.now());
     setShowCjs(true);
   }

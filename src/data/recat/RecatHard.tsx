@@ -62,7 +62,7 @@ export default function RecatHard() {
 
   function reset() {
     setIndex(0);
-    // setRandomList(randomizeAndSlice(airportsData));
+    setRandomList(randomizeAndSlice(recatDataList));
     setStartTime(Date.now());
     setShowAnswer(true);
   }
