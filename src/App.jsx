@@ -32,7 +32,7 @@ function App() {
         <h1>
           ✈️
           <br />
-          YYZ Terminal App 2.3
+          YYZ Terminal App 2.3a
         </h1>
         <h2>Select a topic. </h2>
       </section>

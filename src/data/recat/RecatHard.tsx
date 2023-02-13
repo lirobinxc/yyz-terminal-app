@@ -28,7 +28,9 @@ export default function RecatHard() {
     [string | undefined, string | undefined]
   >(['', '']);
 
-  function randomizeAndSlice(list: RecatPairData[], num = 20) {
+  const TOTAL_CARDS = 20;
+
+  function randomizeAndSlice(list: RecatPairData[], num = TOTAL_CARDS) {
     const newList = list
       .map((value) => ({ value, sort: Math.random() }))
       .sort((a, b) => a.sort - b.sort)
@@ -89,7 +91,15 @@ export default function RecatHard() {
 
     if (timeElapsed <= 0) return 'Click to show score';
 
-    return `${(timeElapsed / 1000).toFixed(1)} seconds`;
+    const totalTimeInSeconds = timeElapsed / 1000;
+    const timePerCard = totalTimeInSeconds / TOTAL_CARDS;
+
+    return (
+      <>
+        {/* <div>{`${totalTimeInSeconds.toFixed(1)} seconds`}</div> */}
+        <div>{`${timePerCard.toFixed(1)} seconds per card`}</div>
+      </>
+    );
   }
 
   function RecatImage(plane1: RecatGroup, plane2: RecatGroup) {
