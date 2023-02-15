@@ -15,6 +15,8 @@ import {
 } from './recatData';
 import { AircraftRecatData } from './aircraftRecatData';
 
+const TOTAL_CARDS = 20;
+
 export default function RecatHard() {
   const [randomList, setRandomList] = useState(
     randomizeAndSlice(recatDataList)
@@ -27,8 +29,6 @@ export default function RecatHard() {
   const [planes, setPlanes] = useState<
     [string | undefined, string | undefined]
   >(['', '']);
-
-  const TOTAL_CARDS = 20;
 
   function randomizeAndSlice(list: RecatPairData[], num = TOTAL_CARDS) {
     const newList = list
@@ -51,7 +51,7 @@ export default function RecatHard() {
       _.sample(AircraftRecatData[randomList[index].plane1]),
       _.sample(AircraftRecatData[randomList[index].plane2]),
     ]);
-  }, [index]);
+  }, [index, randomList]);
 
   function handleShowAnswer() {
     const isFirstItem = index === 0;

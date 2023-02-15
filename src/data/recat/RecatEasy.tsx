@@ -13,6 +13,8 @@ import {
   RecatPairData,
 } from './recatData';
 
+const TOTAL_CARDS = 20;
+
 export default function RecatEasy() {
   const [randomList, setRandomList] = useState(recatDataList);
   const [showCjs, setShowCjs] = useState(true);
@@ -20,8 +22,6 @@ export default function RecatEasy() {
   const [startTime, setStartTime] = useState(Date.now());
   const [endTime, setEndTime] = useState(Date.now());
   const [isClickEnabled, setIsClickEnabled] = useState(true);
-
-  const TOTAL_CARDS = 20;
 
   function randomizeAndSlice(list: RecatPairData[], num = TOTAL_CARDS) {
     const newList = list
