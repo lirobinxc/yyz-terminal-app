@@ -17,7 +17,7 @@ const TOTAL_CARDS = 20;
 
 export default function RecatEasy() {
   const [randomList, setRandomList] = useState(recatDataList);
-  const [showCjs, setShowCjs] = useState(true);
+  const [showAnswer, setShowAnswer] = useState(false);
   const [index, setIndex] = useState(0);
   const [startTime, setStartTime] = useState(Date.now());
   const [endTime, setEndTime] = useState(Date.now());
@@ -49,14 +49,14 @@ export default function RecatEasy() {
       setStartTime(Date.now());
     }
 
-    setShowCjs(false);
+    setShowAnswer(true);
   }
 
   function reset() {
     setIndex(0);
     setRandomList(randomizeAndSlice(recatDataList));
     setStartTime(Date.now());
-    setShowCjs(true);
+    setShowAnswer(false);
   }
 
   function handleNextQuestion() {
@@ -73,7 +73,21 @@ export default function RecatEasy() {
     } else {
       setIndex(index + 1);
     }
-    setShowCjs(true);
+
+    setShowAnswer(false);
+  }
+
+  function handleSpacebarDown(event: React.KeyboardEvent<HTMLDivElement>) {
+    console.log('space pressed');
+    if (event.key === ' ') {
+      switch (showAnswer) {
+        case true:
+          handleNextQuestion();
+          break;
+        default:
+          handleShowAnswer();
+      }
+    }
   }
 
   function displayTimer() {
@@ -115,7 +129,7 @@ export default function RecatEasy() {
       disableClick: !isClickEnabled,
     });
 
-    if (showCjs && nextItem.spacing !== 999) {
+    if (!showAnswer && nextItem.spacing !== 999) {
       return (
         <div className={containerClass} onClick={handleShowAnswer}>
           {RecatImage(nextItem.plane1, nextItem.plane2)}
@@ -144,7 +158,9 @@ export default function RecatEasy() {
   return (
     <section className="TopicPage">
       <div className="topicTitleRow">
-        <div>ICAO-7 RECAT Basic</div>
+        <div onKeyDown={handleSpacebarDown} tabIndex={-1}>
+          ICAO-7 RECAT Basic
+        </div>
         <div>
           Remaining: {randomList ? randomList.length - index : '0'}/
           {randomList && randomList.length}

@@ -34,7 +34,7 @@ function App() {
           <br />
           YYZ Terminal App 2.4a
         </h1>
-        <h2>Select a topic. </h2>
+        <h2>Select a topic.</h2>
       </section>
       <section className="topicSection">
         <ol>
